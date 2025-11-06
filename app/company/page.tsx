@@ -27,7 +27,7 @@ const CompanyPage = () => {
   const fetchCompanies = async () => {
     try {
       setLoading(true);
-      const response = await listCompaniesAPI({ limit: 10, nextToken });
+      const response = await listCompaniesAPI({ nextToken });
       setCompanies(response.items);
       setNextToken(response.nextToken);
     } catch (error) {
