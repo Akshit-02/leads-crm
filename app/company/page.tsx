@@ -77,6 +77,7 @@ const CompanyPage = () => {
                 onClick={() => {
                   window.open(company.linkedin, "_blank");
                 }}
+                className="cursor-pointer text-blue-600 hover:underline"
               >
                 {company.linkedin}
               </TableCell>
@@ -84,6 +85,7 @@ const CompanyPage = () => {
                 onClick={() => {
                   window.open(company.instagram, "_blank");
                 }}
+                className="cursor-pointer text-blue-600 hover:underline"
               >
                 {company.instagram}
               </TableCell>
