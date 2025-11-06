@@ -19,7 +19,7 @@ import {
   TableHeader,
   TableRow,
 } from "@heroui/table";
-import { PencilIcon, TrashIcon } from "@/components/icons";
+import { AddUserIcon, PencilIcon, TrashIcon } from "@/components/icons";
 
 const CompanyDetailsPage = () => {
   const { companyId } = useParams<{ companyId: string }>();
@@ -104,6 +104,10 @@ const CompanyDetailsPage = () => {
       </div>
     );
   }
+
+  const handleSendMail = async (contact: any) => {
+    console.log(contact);
+  };
 
   return (
     <div className="flex flex-col gap-6 p-5">
@@ -254,6 +258,19 @@ const CompanyDetailsPage = () => {
                   </TableCell>
                   <TableCell>
                     <div className="flex gap-2">
+                      <Button
+                        isIconOnly
+                        size="sm"
+                        variant="light"
+                        color="default"
+                        // as={Link}
+                        // href={`/company/${companyId}/contacts/edit/${contact.id}`}
+                        aria-label="Edit contact"
+                        radius="sm"
+                        onClick={() => handleSendMail(contact)}
+                      >
+                        <AddUserIcon size={18} />
+                      </Button>
                       <Button
                         isIconOnly
                         size="sm"
