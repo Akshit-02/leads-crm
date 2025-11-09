@@ -110,7 +110,7 @@ const CompanyDetailsPage = () => {
   };
 
   return (
-    <div className="flex flex-col gap-6 p-5">
+    <div className="flex flex-col gap-6">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold">{company.name}</h1>
         <Button
@@ -141,7 +141,7 @@ const CompanyDetailsPage = () => {
                 }
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary hover:underline"
+                className="text-blue-500 hover:text-blue-600 cursor-pointer"
               >
                 {company.website}
               </a>

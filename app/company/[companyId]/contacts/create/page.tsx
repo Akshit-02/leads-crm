@@ -109,7 +109,7 @@ const ContactCreatePage = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto">
       <Card className="max-w-4xl mx-auto" radius="sm">
         <CardHeader className="flex flex-col gap-2">
           <h1 className="text-2xl font-bold">Create New Contact</h1>

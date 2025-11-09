@@ -38,7 +38,7 @@ const CompanyPage = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4 p-5">
+    <div className="flex flex-col gap-4">
       <div className="flex justify-end">
         <Button
           radius="sm"
@@ -70,14 +70,19 @@ const CompanyPage = () => {
               >
                 {company.name}
               </TableCell>
-              <TableCell>{company.website}</TableCell>
+              <TableCell
+                onClick={() => window.open(company.website, "_blank")}
+                className="text-blue-400 hover:underline cursor-pointer"
+              >
+                {company.website}
+              </TableCell>
               <TableCell>{company.websiteTechStack}</TableCell>
               <TableCell>{company.industry}</TableCell>
               <TableCell
                 onClick={() => {
                   window.open(company.linkedin, "_blank");
                 }}
-                className="cursor-pointer text-blue-600 hover:underline"
+                className="cursor-pointer text-blue-400 hover:underline"
               >
                 {company.linkedin}
               </TableCell>
@@ -85,7 +90,7 @@ const CompanyPage = () => {
                 onClick={() => {
                   window.open(company.instagram, "_blank");
                 }}
-                className="cursor-pointer text-blue-600 hover:underline"
+                className="cursor-pointer text-blue-400 hover:underline"
               >
                 {company.instagram}
               </TableCell>
