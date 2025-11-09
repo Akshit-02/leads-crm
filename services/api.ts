@@ -21,6 +21,9 @@ export const getCompany = /* GraphQL */ `
       status
       createdAt
       updatedAt
+      notes
+      email
+      phone
     }
   }
 `;
@@ -68,6 +71,9 @@ export const listCompanies = /* GraphQL */ `
         status
         createdAt
         updatedAt
+        notes
+        email
+        phone
       }
       nextToken
     }
@@ -149,6 +155,9 @@ export const createCompany = /* GraphQL */ `
       twitter
       facebook
       status
+      notes
+      email
+      phone
       createdAt
       updatedAt
     }
@@ -195,6 +204,9 @@ export const updateCompany = /* GraphQL */ `
       twitter
       facebook
       status
+      notes
+      email
+      phone
       createdAt
       updatedAt
     }
