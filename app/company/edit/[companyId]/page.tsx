@@ -4,7 +4,7 @@ import { getCompanyAPI, updateCompanyAPI } from "@/services/handleApi";
 import { Button } from "@heroui/button";
 import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
 import { Divider } from "@heroui/divider";
-import { Input } from "@heroui/input";
+import { Input, Textarea } from "@heroui/input";
 import { Select, SelectItem } from "@heroui/select";
 import { addToast } from "@heroui/toast";
 import { useParams, useRouter } from "next/navigation";
@@ -29,6 +29,12 @@ const industryOptions = [
   { label: "Retail", value: "retail" },
   { label: "Manufacturing", value: "manufacturing" },
   { label: "Other", value: "other" },
+];
+
+const priorityOptions = [
+  { label: "Low", value: "low" },
+  { label: "Medium", value: "medium" },
+  { label: "High", value: "high" },
 ];
 
 const websiteTechStackOptions = [
@@ -73,6 +79,10 @@ const CompanyEditPage = () => {
     instagram: "",
     twitter: "",
     facebook: "",
+    email: "",
+    phone: "",
+    notes: "",
+    priority: "",
   });
 
   useEffect(() => {
@@ -101,6 +111,10 @@ const CompanyEditPage = () => {
         instagram: companyData.instagram,
         twitter: companyData.twitter,
         facebook: companyData.facebook,
+        email: companyData.email,
+        phone: companyData.phone,
+        notes: companyData.notes,
+        priority: companyData.priority,
       });
     } catch (err) {
       console.error("Error fetching company details:", err);
@@ -148,6 +162,10 @@ const CompanyEditPage = () => {
         instagram: formData.instagram,
         twitter: formData.twitter,
         facebook: formData.facebook,
+        email: formData.email,
+        phone: formData.phone,
+        notes: formData.notes,
+        priority: formData.priority,
         status: "ACTIVE",
       };
       console.log("payload", payload);
@@ -176,6 +194,10 @@ const CompanyEditPage = () => {
         instagram: "",
         twitter: "",
         facebook: "",
+        email: "",
+        phone: "",
+        notes: "",
+        priority: "",
       });
       router.back();
     } catch (error) {
@@ -337,6 +359,60 @@ const CompanyEditPage = () => {
                   onChange={handleChange}
                   placeholder="e.g. 1000000"
                 />
+              </div>
+              <div>
+                <label
+                  htmlFor="annualRevenue"
+                  className="block text-sm font-medium mb-1"
+                >
+                  Email
+                </label>
+                <Input
+                  radius="sm"
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="e.g. example@gmail.com"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium mb-1"
+                >
+                  Phone
+                </label>
+                <Input
+                  radius="sm"
+                  id="phone"
+                  name="phone"
+                  type="number"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="e.g. 1234567890"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="industry"
+                  className="block text-sm font-medium mb-1"
+                >
+                  Priority
+                </label>
+                <Select
+                  radius="sm"
+                  id="priority"
+                  name="priority"
+                  value={formData.priority}
+                  onChange={(e) => handleSelectChange("priority", e)}
+                  placeholder="Select priority"
+                >
+                  {priorityOptions.map((option) => (
+                    <SelectItem key={option.value}>{option.label}</SelectItem>
+                  ))}
+                </Select>
               </div>
             </div>
 
@@ -503,6 +579,23 @@ const CompanyEditPage = () => {
                   value={formData.instagram}
                   onChange={handleChange}
                   placeholder="https://instagram.com/example"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="notes"
+                  className="block text-sm font-medium mb-1"
+                >
+                  Notes
+                </label>
+                <Textarea
+                  radius="sm"
+                  id="notes"
+                  name="notes"
+                  value={formData.notes}
+                  onChange={handleChange}
+                  placeholder="Add any additional notes about this company"
+                  className="min-h-[100px]"
                 />
               </div>
             </div>

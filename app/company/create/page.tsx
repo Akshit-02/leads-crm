@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { addToast } from "@heroui/toast";
 import { Button } from "@heroui/button";
-import { Input } from "@heroui/input";
+import { Input, Textarea } from "@heroui/input";
 import { Select, SelectItem } from "@heroui/select";
 import { Card, CardHeader, CardBody, CardFooter } from "@heroui/card";
 import { Divider } from "@heroui/divider";
@@ -29,6 +29,12 @@ const industryOptions = [
   { label: "Retail", value: "retail" },
   { label: "Manufacturing", value: "manufacturing" },
   { label: "Other", value: "other" },
+];
+
+const priorityOptions = [
+  { label: "Low", value: "low" },
+  { label: "Medium", value: "medium" },
+  { label: "High", value: "high" },
 ];
 
 const websiteTechStackOptions = [
@@ -68,6 +74,10 @@ const CompanyCreatePage = () => {
     state: "",
     country: "",
     zipCode: "",
+    email: "",
+    phone: "",
+    notes: "",
+    priority: "",
     linkedin: "",
     instagram: "",
     twitter: "",
@@ -111,6 +121,10 @@ const CompanyCreatePage = () => {
         state: formData.state,
         country: formData.country,
         zipCode: formData.zipCode,
+        email: formData.email,
+        phone: formData.phone,
+        notes: formData.notes,
+        priority: formData.priority,
         linkedin: formData.linkedin,
         instagram: formData.instagram,
         twitter: formData.twitter,
@@ -140,6 +154,10 @@ const CompanyCreatePage = () => {
         state: "",
         country: "",
         zipCode: "",
+        email: "",
+        phone: "",
+        notes: "",
+        priority: "",
         linkedin: "",
         instagram: "",
         twitter: "",
@@ -306,6 +324,60 @@ const CompanyCreatePage = () => {
                   placeholder="e.g. 1000000"
                 />
               </div>
+              <div>
+                <label
+                  htmlFor="annualRevenue"
+                  className="block text-sm font-medium mb-1"
+                >
+                  Email
+                </label>
+                <Input
+                  radius="sm"
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="e.g. example@gmail.com"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium mb-1"
+                >
+                  Phone
+                </label>
+                <Input
+                  radius="sm"
+                  id="phone"
+                  name="phone"
+                  type="number"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="e.g. 1234567890"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="industry"
+                  className="block text-sm font-medium mb-1"
+                >
+                  Priority
+                </label>
+                <Select
+                  radius="sm"
+                  id="priority"
+                  name="priority"
+                  value={formData.priority}
+                  onChange={(e) => handleSelectChange("priority", e)}
+                  placeholder="Select priority"
+                >
+                  {priorityOptions.map((option) => (
+                    <SelectItem key={option.value}>{option.label}</SelectItem>
+                  ))}
+                </Select>
+              </div>
             </div>
 
             <Divider />
@@ -471,6 +543,24 @@ const CompanyCreatePage = () => {
                   value={formData.instagram}
                   onChange={handleChange}
                   placeholder="https://instagram.com/example"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="notes"
+                  className="block text-sm font-medium mb-1"
+                >
+                  Notes
+                </label>
+                <Textarea
+                  radius="sm"
+                  id="notes"
+                  name="notes"
+                  value={formData.notes}
+                  onChange={handleChange}
+                  placeholder="Add any additional notes about this company"
+                  className="min-h-[100px]"
                 />
               </div>
             </div>

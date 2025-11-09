@@ -22,6 +22,7 @@ export const getCompany = /* GraphQL */ `
       createdAt
       updatedAt
       notes
+      priority
       email
       phone
     }
@@ -72,6 +73,7 @@ export const listCompanies = /* GraphQL */ `
         createdAt
         updatedAt
         notes
+        priority
         email
         phone
       }
@@ -158,6 +160,7 @@ export const createCompany = /* GraphQL */ `
       notes
       email
       phone
+      priority
       createdAt
       updatedAt
     }
@@ -207,6 +210,7 @@ export const updateCompany = /* GraphQL */ `
       notes
       email
       phone
+      priority
       createdAt
       updatedAt
     }
