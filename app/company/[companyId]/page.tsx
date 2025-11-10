@@ -4,6 +4,7 @@ import { useParams } from "next/navigation";
 import {
   getCompanyAPI,
   listContactsByCompanyIdAPI,
+  sendOutreachEmailAPI,
 } from "@/services/handleApi";
 import { useState } from "react";
 import { Button } from "@heroui/button";
@@ -20,6 +21,7 @@ import {
   TableRow,
 } from "@heroui/table";
 import { AddUserIcon, PencilIcon, TrashIcon } from "@/components/icons";
+import { on } from "events";
 
 const CompanyDetailsPage = () => {
   const { companyId } = useParams<{ companyId: string }>();
@@ -107,6 +109,20 @@ const CompanyDetailsPage = () => {
 
   const handleSendMail = async (contact: any) => {
     console.log(contact);
+    try {
+      const response = await sendOutreachEmailAPI({
+        companyId: company.id,
+        contactId: contact.id,
+        to: contact.email,
+        from: "akshit@zspace.in",
+        subject: "How your Shopify store can recover lost revenue",
+        text: "Hi Akshit, I noticed beautywise is running on Shopify and your traffic looks solid, great job.",
+        html: "<p>Hi Akshit, I noticed beautywise is running on Shopify and your traffic looks solid, great job.</p>",
+      });
+      console.log("Response:", response);
+    } catch (err) {
+      console.log("Error sending mail:", err);
+    }
   };
 
   return (

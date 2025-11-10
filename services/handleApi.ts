@@ -9,6 +9,7 @@ import {
   listCompanies,
   listContacts,
   listContactsByCompanyId,
+  sendOutreachEmail,
   updateCompany,
   updateContact,
 } from "./api";
@@ -138,4 +139,15 @@ export const getContactAPI = async (id: string) => {
     authMode: "apiKey",
   });
   return response?.data?.getContact;
+};
+
+export const sendOutreachEmailAPI = async (input: any) => {
+  const response: any = await client.graphql({
+    query: sendOutreachEmail,
+    variables: {
+      input,
+    },
+    authMode: "apiKey",
+  });
+  return response?.data?.sendOutreachEmail;
 };

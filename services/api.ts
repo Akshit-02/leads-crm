@@ -235,3 +235,12 @@ export const updateContact = /* GraphQL */ `
     }
   }
 `;
+
+export const sendOutreachEmail = /* GraphQL */ `
+  mutation SendOutreachEmail($input: SendOutreachEmailInput) {
+    sendOutreachEmail(input: $input) {
+      success
+      message
+    }
+  }
+`;
