@@ -115,10 +115,55 @@ const CompanyDetailsPage = () => {
         contactId: contact.id,
         to: contact.email,
         from: "akshit@zspace.in",
-        subject: "How your Shopify store can recover lost revenue",
-        text: "Hi Akshit, I noticed beautywise is running on Shopify and your traffic looks solid, great job.",
-        html: "<p>Hi Akshit, I noticed beautywise is running on Shopify and your traffic looks solid, great job.</p>",
+        subject:
+          "Hidden conversion wins waiting on Frenesi Fashion’s Shopify store",
+        text: `Hi Tanvi,
+
+      I came across Frenesi Fashion recently — love how you’ve built a bold, fashion-forward brand offering standout pieces and coordinated sets that speak to style-hungry women.
+
+      I’m Akshit, founder of Zspace, where we partner with Shopify D2C brands to recover lost revenue and boost conversions from the traffic they already have.
+
+      From a quick look at your site, I noticed a few areas that could unlock 10–25%+ more revenue without increasing ad spend:
+
+      1. Product catalogue navigation & filter clarity – with so many SKUs, ease of discovery matters.
+      2. Product-page focus & urgency cues – styling/availability cues often drive add-to-cart.
+      3. Checkout drop-off risk – streamlining the mini-cart → checkout path can recover lost sales.
+
+      I’d love to offer you a free 15-min audit of your Shopify funnel and share actionable ideas you can apply right away.
+
+      Would Thursday morning or Friday afternoon work for a quick chat?
+
+      Cheers,
+      Akshit Murarka
+      Founder, Zspace Technologies
+      https://zspace.in
+      `,
+        html: `
+      <p>Hi Tanvi,</p>
+
+      <p>I came across <b>Frenesi Fashion</b> recently — love how you’ve built a bold, fashion-forward brand offering standout pieces and coordinated sets that speak to style-hungry women.</p>
+
+      <p>I’m <b>Akshit</b>, founder of <b>Zspace</b>, where we partner with Shopify D2C brands to <b>recover lost revenue and boost conversions</b> from the traffic they already have.</p>
+
+      <p>From a quick look at your site, I noticed a few areas that could unlock <b>10–25%+ more revenue</b> without increasing ad spend:</p>
+
+      <ul>
+        <li><b>Product catalogue navigation & filter clarity</b> – with so many SKUs, ease of discovery matters.</li>
+        <li><b>Product-page focus & urgency cues</b> – styling/availability cues often drive add-to-cart.</li>
+        <li><b>Checkout drop-off risk</b> – streamlining the mini-cart → checkout path can recover lost sales.</li>
+      </ul>
+
+      <p>I’d love to offer you a <b>free 15-min audit</b> of your Shopify funnel and share <b>actionable ideas</b> you can apply right away.</p>
+
+      <p>Would <b>Thursday morning or Friday afternoon</b> work for a quick chat?</p>
+
+      <p>Cheers,<br>
+      <b>Akshit Murarka</b><br>
+      Founder, Zspace Technologies<br>
+      <a href="https://zspace.in" target="_blank">https://zspace.in</a></p>
+      `,
       });
+
       console.log("Response:", response);
     } catch (err) {
       console.log("Error sending mail:", err);

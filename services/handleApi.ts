@@ -59,7 +59,7 @@ export const updateCompanyAPI = async (id: string, input: any) => {
 };
 
 export const listCompaniesAPI = async ({
-  limit = 50,
+  limit = 100,
   nextToken = null,
 }: any) => {
   const response: any = await client.graphql({
@@ -74,7 +74,7 @@ export const listCompaniesAPI = async ({
 };
 
 export const listContactsAPI = async ({
-  limit = 50,
+  limit = 100,
   nextToken = null,
 }: any) => {
   const response: any = await client.graphql({
@@ -90,7 +90,7 @@ export const listContactsAPI = async ({
 
 export const listContactsByCompanyIdAPI = async ({
   companyId,
-  limit = 50,
+  limit = 100,
   nextToken = null,
 }: any) => {
   const response: any = await client.graphql({
