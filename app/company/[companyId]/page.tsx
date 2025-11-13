@@ -109,29 +109,30 @@ const CompanyDetailsPage = () => {
 
   const handleSendMail = async (contact: any) => {
     console.log(contact);
+    return;
     try {
       const response = await sendOutreachEmailAPI({
         companyId: company.id,
         contactId: contact.id,
+        // to: "akshit.techie@gmail.com",
         to: contact.email,
         from: "akshit@zspace.in",
-        subject:
-          "Hidden conversion wins waiting on Frenesi Fashion’s Shopify store",
-        text: `Hi Tanvi,
+        subject: "3 Hidden conversion gains waiting on Vaaree’s Shopify store",
+        text: `Hi Garima,
 
-      I came across Frenesi Fashion recently — love how you’ve built a bold, fashion-forward brand offering standout pieces and coordinated sets that speak to style-hungry women.
+      I came across Vaaree recently, I loved how you’re creating a modern home-destination for Indian living with style, soul and smart design.
 
-      I’m Akshit, founder of Zspace, where we partner with Shopify D2C brands to recover lost revenue and boost conversions from the traffic they already have.
+      I’m Akshit, founder of ZSpace, where we partner with Shopify D2C lifestyle & home brands to boost conversions from the traffic they already have.
 
-      From a quick look at your site, I noticed a few areas that could unlock 10–25%+ more revenue without increasing ad spend:
+      From a quick look at your store, I noticed a few areas that could unlock 10–25%+ more revenue without increasing ad spend:
 
-      1. Product catalogue navigation & filter clarity – with so many SKUs, ease of discovery matters.
-      2. Product-page focus & urgency cues – styling/availability cues often drive add-to-cart.
-      3. Checkout drop-off risk – streamlining the mini-cart → checkout path can recover lost sales.
+      1. Above-the-fold clarity & hero layout – your design story is strong, and tightening the hero section can lift first-impression engagement. 
+      2. Product-page visual & story flow – home décor is visual and aspirational; emphasising the “look + feel” and finish earlier helps reduce hesitation.  
+      3. Checkout/funnel drop-off risk – with many product categories, smoothing mini-cart → checkout on mobile can boost conversions.
 
       I’d love to offer you a free 15-min audit of your Shopify funnel and share actionable ideas you can apply right away.
 
-      Would Thursday morning or Friday afternoon work for a quick chat?
+      Would you be available for a brief 15-minute discussion this week?
 
       Cheers,
       Akshit Murarka
@@ -139,23 +140,23 @@ const CompanyDetailsPage = () => {
       https://zspace.in
       `,
         html: `
-      <p>Hi Tanvi,</p>
+      <p>Hi Garima,</p>
 
-      <p>I came across <b>Frenesi Fashion</b> recently — love how you’ve built a bold, fashion-forward brand offering standout pieces and coordinated sets that speak to style-hungry women.</p>
+      <p>I came across <b>Vaaree</b> recently, I loved how you’re creating a modern home-destination for Indian living with style, soul and smart design.</p>
 
-      <p>I’m <b>Akshit</b>, founder of <b>Zspace</b>, where we partner with Shopify D2C brands to <b>recover lost revenue and boost conversions</b> from the traffic they already have.</p>
+      <p>I’m <b>Akshit</b>, founder of <b>Zspace</b>, where we partner with Shopify D2C lifestyle & home brands to <b>boost conversions</b> from the traffic they already have.</p>
 
       <p>From a quick look at your site, I noticed a few areas that could unlock <b>10–25%+ more revenue</b> without increasing ad spend:</p>
 
       <ul>
-        <li><b>Product catalogue navigation & filter clarity</b> – with so many SKUs, ease of discovery matters.</li>
-        <li><b>Product-page focus & urgency cues</b> – styling/availability cues often drive add-to-cart.</li>
-        <li><b>Checkout drop-off risk</b> – streamlining the mini-cart → checkout path can recover lost sales.</li>
+        <li><b>Above-the-fold clarity & hero layout</b> – your design story is strong, and tightening the hero section can lift first-impression engagement.</li>
+        <li><b>Product-page visual & story flow</b> – home décor is visual and aspirational; emphasising the “look + feel” and finish earlier helps reduce hesitation.</li>
+        <li><b>Checkout/funnel drop-off risk</b> – with many product categories, smoothing mini-cart → checkout on mobile can boost conversions.</li>
       </ul>
 
       <p>I’d love to offer you a <b>free 15-min audit</b> of your Shopify funnel and share <b>actionable ideas</b> you can apply right away.</p>
 
-      <p>Would <b>Thursday morning or Friday afternoon</b> work for a quick chat?</p>
+      <p>Would you be available for a brief 15-minute discussion this week?</p>
 
       <p>Cheers,<br>
       <b>Akshit Murarka</b><br>
