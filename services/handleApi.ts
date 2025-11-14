@@ -4,14 +4,18 @@ import { generateClient } from "aws-amplify/api";
 import {
   createCompany,
   createContact,
+  createOutreachEmailFlow,
   getCompany,
   getContact,
   listCompanies,
   listContacts,
   listContactsByCompanyId,
+  listOutreachEmailFlowsByContactId,
   sendOutreachEmail,
+  sendTestOutreachEmail,
   updateCompany,
   updateContact,
+  updateOutreachEmailFlow,
 } from "./api";
 
 Amplify.configure({
@@ -150,4 +154,57 @@ export const sendOutreachEmailAPI = async (input: any) => {
     authMode: "apiKey",
   });
   return response?.data?.sendOutreachEmail;
+};
+
+export const sendTestOutreachEmailAPI = async (input: any) => {
+  const response: any = await client.graphql({
+    query: sendTestOutreachEmail,
+    variables: {
+      input,
+    },
+    authMode: "apiKey",
+  });
+  return response?.data?.sendTestOutreachEmail;
+};
+
+export const createOutreachEmailFlowAPI = async (input: any) => {
+  const response: any = await client.graphql({
+    query: createOutreachEmailFlow,
+    variables: {
+      input,
+    },
+    authMode: "apiKey",
+  });
+  return response?.data?.createOutreachEmailFlow;
+};
+
+export const updateOutreachEmailFlowAPI = async (id: string, input: any) => {
+  const response: any = await client.graphql({
+    query: updateOutreachEmailFlow,
+    variables: {
+      input: {
+        id,
+        ...input,
+      },
+    },
+    authMode: "apiKey",
+  });
+  return response?.data?.updateOutreachEmailFlow;
+};
+
+export const listOutreachEmailFlowsByContactIdAPI = async ({
+  contactId,
+  limit = 100,
+  nextToken = null,
+}: any) => {
+  const response: any = await client.graphql({
+    query: listOutreachEmailFlowsByContactId,
+    variables: {
+      contactId,
+      limit,
+      nextToken,
+    },
+    authMode: "apiKey",
+  });
+  return response?.data?.listOutreachEmailFlowsByContactId;
 };

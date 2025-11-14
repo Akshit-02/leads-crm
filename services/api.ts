@@ -244,3 +244,121 @@ export const sendOutreachEmail = /* GraphQL */ `
     }
   }
 `;
+
+export const sendTestOutreachEmail = /* GraphQL */ `
+  mutation SendTestOutreachEmail($input: SendTestOutreachEmailInput) {
+    sendTestOutreachEmail(input: $input) {
+      success
+      message
+    }
+  }
+`;
+
+export const createOutreachEmailFlow = /* GraphQL */ `
+  mutation CreateOutreachEmailFlow($input: CreateOutreachEmailFlowInput) {
+    createOutreachEmailFlow(input: $input) {
+      id
+      companyId
+      contactId
+
+      outreachMailText
+      outreachMailSubject
+      outreachMailHtml
+      outreachMailScheduledAt
+
+      followup1Text
+      followup1Subject
+      followup1Html
+      followup1ScheduledAt
+
+      followup2Text
+      followup2Subject
+      followup2Html
+      followup2ScheduledAt
+
+      followup3Text
+      followup3Subject
+      followup3Html
+      followup3ScheduledAt
+
+      createdAt
+      updatedAt
+    }
+  }
+`;
+
+export const updateOutreachEmailFlow = /* GraphQL */ `
+  mutation UpdateOutreachEmailFlow($input: UpdateOutreachEmailFlowInput) {
+    updateOutreachEmailFlow(input: $input) {
+      id
+      companyId
+      contactId
+
+      outreachMailText
+      outreachMailSubject
+      outreachMailHtml
+      outreachMailScheduledAt
+
+      followup1Text
+      followup1Subject
+      followup1Html
+      followup1ScheduledAt
+
+      followup2Text
+      followup2Subject
+      followup2Html
+      followup2ScheduledAt
+
+      followup3Text
+      followup3Subject
+      followup3Html
+      followup3ScheduledAt
+
+      createdAt
+      updatedAt
+    }
+  }
+`;
+
+export const listOutreachEmailFlowsByContactId = /* GraphQL */ `
+  query ListOutreachEmailFlowsByContactId(
+    $contactId: ID!
+    $limit: Int
+    $nextToken: String
+  ) {
+    listOutreachEmailFlowsByContactId(
+      contactId: $contactId
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        companyId
+        contactId
+        outreachMailText
+        outreachMailSubject
+        outreachMailHtml
+        outreachMailScheduledAt
+
+        followup1Text
+        followup1Subject
+        followup1Html
+        followup1ScheduledAt
+
+        followup2Text
+        followup2Subject
+        followup2Html
+        followup2ScheduledAt
+
+        followup3Text
+        followup3Subject
+        followup3Html
+        followup3ScheduledAt
+
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;

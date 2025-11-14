@@ -111,61 +111,189 @@ const CompanyDetailsPage = () => {
     console.log(contact);
     return;
     try {
-      const response = await sendOutreachEmailAPI({
+      const outreach = await sendOutreachEmailAPI({
         companyId: company.id,
         contactId: contact.id,
         // to: "akshit.techie@gmail.com",
         to: contact.email,
         from: "akshit@zspace.in",
         subject: "3 Hidden conversion gains waiting on Vaaree’s Shopify store",
-        text: `Hi Garima,
+        text: `Hi Vritee,
 
-      I came across Vaaree recently, I loved how you’re creating a modern home-destination for Indian living with style, soul and smart design.
+      I came across 11.11 / eleven eleven recently — absolutely love your craftsmanship and heritage story. The hand-spun, naturally dyed, artisan-led approach is truly inspiring.
 
-      I’m Akshit, founder of ZSpace, where we partner with Shopify D2C lifestyle & home brands to boost conversions from the traffic they already have.
+      I’m Akshit, founder of Zspace, where we partner with Shopify-D2C brands to recover lost revenue and boost conversions — especially from traffic you already have.
 
-      From a quick look at your store, I noticed a few areas that could unlock 10–25%+ more revenue without increasing ad spend:
+      From a quick look at your site, I noticed a few areas that could unlock 10–25%+ more revenue without increasing ad spend:
 
-      1. Above-the-fold clarity & hero layout – your design story is strong, and tightening the hero section can lift first-impression engagement. 
-      2. Product-page visual & story flow – home décor is visual and aspirational; emphasising the “look + feel” and finish earlier helps reduce hesitation.  
-      3. Checkout/funnel drop-off risk – with many product categories, smoothing mini-cart → checkout on mobile can boost conversions.
+      1. Mobile checkout speed & friction – even a few extra seconds of load time can hurt conversions.
+      2. Funnel drop-off – optimizing the “last mile” (product page → cart → checkout) often yields big wins.
+      3. UX & app-stack overlap – small app conflicts or slow scripts can impact performance.
 
-      I’d love to offer you a free 15-min audit of your Shopify funnel and share actionable ideas you can apply right away.
+      I’d love to offer you a free 15-min audit session of your Shopify funnel and share some actionable ideas you can apply right away.
 
-      Would you be available for a brief 15-minute discussion this week?
+      Would Wednesday morning or Thursday afternoon work for a quick chat?
 
       Cheers,
       Akshit Murarka
       Founder, Zspace Technologies
       https://zspace.in
-      `,
+        `,
         html: `
-      <p>Hi Garima,</p>
+        <p>Hi Garima,</p>
 
-      <p>I came across <b>Vaaree</b> recently, I loved how you’re creating a modern home-destination for Indian living with style, soul and smart design.</p>
+        <p>I came across <b>${company.name}</b> recently, absolutely love your craftsmanship and heritage story. The hand-spun, naturally dyed, artisan-led approach is truly inspiring.</p>
 
-      <p>I’m <b>Akshit</b>, founder of <b>Zspace</b>, where we partner with Shopify D2C lifestyle & home brands to <b>boost conversions</b> from the traffic they already have.</p>
+        <p>I’m <b>Akshit</b>, founder of <b>Zspace</b>, where we partner with Shopify D2C brands to <b>boost conversions</b> from the traffic they already have.</p>
 
-      <p>From a quick look at your site, I noticed a few areas that could unlock <b>10–25%+ more revenue</b> without increasing ad spend:</p>
+        <p>From a quick look at your site, I noticed a few areas that could unlock <b>10–25%+ more revenue</b> without increasing ad spend:</p>
 
-      <ul>
-        <li><b>Above-the-fold clarity & hero layout</b> – your design story is strong, and tightening the hero section can lift first-impression engagement.</li>
-        <li><b>Product-page visual & story flow</b> – home décor is visual and aspirational; emphasising the “look + feel” and finish earlier helps reduce hesitation.</li>
-        <li><b>Checkout/funnel drop-off risk</b> – with many product categories, smoothing mini-cart → checkout on mobile can boost conversions.</li>
-      </ul>
+        <ul>
+          <li><b>Mobile checkout speed & friction</b> – even a few extra seconds of load time can hurt conversions.</li>
+          <li><b>Funnel drop-off</b> – optimizing the “last mile” (product page → cart → checkout) often yields big wins.</li>
+          <li><b>UX & app-stack overlap</b> – small app conflicts or slow scripts can impact performance.</li>
+        </ul>
 
-      <p>I’d love to offer you a <b>free 15-min audit</b> of your Shopify funnel and share <b>actionable ideas</b> you can apply right away.</p>
+        <p>I’d love to offer you a <b>free 15-min audit</b> of your Shopify funnel and share <b>actionable ideas</b> you can apply right away.</p>
 
-      <p>Would you be available for a brief 15-minute discussion this week?</p>
+        <p>Would you be available for a brief 15-minute discussion this week?</p>
 
-      <p>Cheers,<br>
-      <b>Akshit Murarka</b><br>
-      Founder, Zspace Technologies<br>
-      <a href="https://zspace.in" target="_blank">https://zspace.in</a></p>
-      `,
+        <p>Cheers,<br>
+        <b>Akshit Murarka</b><br>
+        Founder, Zspace Technologies<br>
+        <a href="https://zspace.in" target="_blank">https://zspace.in</a></p>
+        `,
       });
 
-      console.log("Response:", response);
+      const follow1 = await sendOutreachEmailAPI({
+        companyId: company.id,
+        contactId: contact.id,
+        // to: "akshit.techie@gmail.com",
+        to: contact.email,
+        from: "akshit@zspace.in",
+        subject: "A few more CRO insights I found on Vaaree",
+        text: `Hi Vritee,
+
+Following up on my earlier note — I took a deeper look at 11.11’s Shopify experience and found a few more areas where you could unlock extra conversions without increasing ad spend.
+
+Here are 5 things worth testing or auditing:
+1. Image compression & script order – can reduce mobile load time by 30–40%.  
+2. PDP scroll depth – some users don’t reach “Add to Cart” without visual anchors.  
+3. Cart abandonment triggers – custom popups or reminders can recover 8–12% of drop-offs.  
+4. Bundle & AOV prompts – your storytelling is perfect for ritual sets or complementary pairing.  
+5. Checkout app scripts – sometimes cause 2–3 sec lag on mobile.
+
+Happy to walk you through a free 15-min audit and share a few practical next steps you can apply right away.  
+Would early next week work for you?
+
+Cheers,  
+Akshit  
+Founder, Zspace Technologies  
+https://zspace.in
+        `,
+        html: `
+        <p>Hi Vritee</p>
+
+        <p>Following up on my earlier note — I took a deeper look at <b>11.11’s store</b> and found a few more areas where you could unlock extra conversions without increasing ad spend.</p>
+
+        <ul>
+          <li><b>Image compression & script order</b> – can reduce mobile load time by 30–40%.</li>
+          <li><b>PDP scroll depth</b> – some users don’t reach “Add to Cart” without visual anchors.</li>
+          <li><b>Cart abandonment triggers</b> – custom popups or reminders can recover 8–12% of drop-offs.</li>
+          <li><b>Bundle & AOV prompts</b> – your storytelling is perfect for ritual sets or complementary pairing.</li>
+          <li><b>Checkout app scripts</b> – sometimes cause 2–3 sec lag on mobile.</li>
+        </ul>
+
+        <p>Happy to walk you through a free 15-min audit and share a few practical next steps you can apply right away. Would early next week work for you?</p>
+        <p>Would early next week work for you?</p>
+
+        <p>Cheers,<br>
+        <b>Akshit Murarka</b><br>
+        Founder, Zspace Technologies<br>
+        <a href="https://zspace.in" target="_blank">https://zspace.in</a></p>
+        `,
+      });
+      const follow2 = await sendOutreachEmailAPI({
+        companyId: company.id,
+        contactId: contact.id,
+        // to: "akshit.techie@gmail.com",
+        to: contact.email,
+        from: "akshit@zspace.in",
+        subject: "Quick nudge on my Shopify audit offer for Vaaree",
+        text: `Did you get a chance to review my CRO audit offer for 11.11?
+
+Hi Vritee,
+
+Just checking in in case my earlier notes got buried.
+
+I’d still love to share a short, no-pitch CRO audit for 11.11 — with a few practical ideas you can test immediately to boost conversions and AOV.
+
+Many D2C brands I’ve worked with have seen quick wins just from small UX and funnel tweaks.
+
+Would you be open to a quick 15-min chat this week?
+
+Best,  
+Akshit  
+Founder, Zspace Technologies  
+https://zspace.in
+        `,
+        html: `
+        <p>Hi Vritee</p>
+
+        <p>Just checking in in case my earlier notes got buried.</p>
+
+        <p>I’d still love to share a short, no-pitch CRO audit for 11.11 — with a few practical ideas you can test immediately to boost conversions and AOV.</b></p>
+
+        <p>I’d still love to offer the <b>short, free audit for Vaaree</b> — with a few ideas tailored to your <b>design-driven home décor offering</b> and <b>customer base.</b></p>
+
+        <p>Would you be open to a <b>15-min chat this week?</b></p>
+
+        <p>Cheers,<br>
+        <b>Akshit Murarka</b><br>
+        Founder, Zspace Technologies<br>
+        <a href="https://zspace.in" target="_blank">https://zspace.in</a></p>
+        `,
+      });
+
+      const follow3 = await sendOutreachEmailAPI({
+        companyId: company.id,
+        contactId: contact.id,
+        // to: "akshit.techie@gmail.com",
+        to: contact.email,
+        from: "akshit@zspace.in",
+        subject: "Should I close the loop on Vaaree’s CRO audit offer?",
+        text: `Hi Vritee,
+
+I know things can get busy — totally understand if now isn’t the right time.
+
+If you’re still open, I’d be happy to run a free mini audit of your Shopify funnel and send over 2–3 tailored insights you can act on immediately (no strings attached).
+
+Otherwise, I’ll close the loop for now and reconnect later this quarter with fresh CRO benchmarks we’re seeing across D2C fashion and lifestyle brands.
+
+Either way, wishing you a great Q4 — your brand story truly deserves more eyes (and conversions) on it.
+
+Warm regards,  
+Akshit Murarka  
+Founder, Zspace Technologies  
+https://zspace.in
+        `,
+        html: `
+        <p>Hi Vritee</p>
+
+        <p>I know things can get busy — totally understand if now isn’t the right time.</p>
+
+        <p>If you’re still open, I’d be happy to run a free mini audit of your Shopify funnel and send over 2–3 tailored insights you can act on immediately (no strings attached).</p>
+
+        <p>Otherwise, I’ll <b>close the loop for now</b> and reconnect later this quarter with fresh CRO benchmarks we’re seeing across D2C fashion and lifestyle brands.</p>
+
+        <p>Either way, wishing you a great Q4 — your brand story truly deserves more eyes (and conversions) on it.</p>
+
+        <p>Cheers,<br>
+        <b>Akshit Murarka</b><br>
+        Founder, Zspace Technologies<br>
+        <a href="https://zspace.in" target="_blank">https://zspace.in</a></p>
+        `,
+      });
     } catch (err) {
       console.log("Error sending mail:", err);
     }
@@ -329,7 +457,9 @@ const CompanyDetailsPage = () => {
                         // href={`/company/${companyId}/contacts/edit/${contact.id}`}
                         aria-label="Edit contact"
                         radius="sm"
-                        onClick={() => handleSendMail(contact)}
+                        as={Link}
+                        href={`/company/${companyId}/contacts/${contact.id}/outreach-email/create`}
+                        // onClick={() => handleSendMail(contact)}
                       >
                         <AddUserIcon size={18} />
                       </Button>
@@ -355,6 +485,21 @@ const CompanyDetailsPage = () => {
                         radius="sm"
                       >
                         <TrashIcon size={18} />
+                      </Button>
+                      <Button
+                        isIconOnly
+                        size="sm"
+                        variant="light"
+                        color="default"
+                        // as={Link}
+                        // href={`/company/${companyId}/contacts/edit/${contact.id}`}
+                        aria-label="Edit contact"
+                        radius="sm"
+                        as={Link}
+                        href={`/company/${companyId}/contacts/${contact.id}/outreach-email`}
+                        // onClick={() => handleSendMail(contact)}
+                      >
+                        <AddUserIcon size={18} />
                       </Button>
                     </div>
                   </TableCell>
