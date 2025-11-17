@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { addToast } from "@heroui/toast";
 import { Button } from "@heroui/button";
 import { Input, Textarea } from "@heroui/input";
@@ -29,11 +29,8 @@ interface FormData {
   followup3ScheduledAt: string;
 }
 
-const CreateOutreachEmailPage = ({
-  params,
-}: {
-  params: { companyId: string; contactId: string };
-}) => {
+const CreateOutreachEmailPage = () => {
+  const { companyId, contactId } = useParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
 
@@ -90,8 +87,8 @@ const CreateOutreachEmailPage = ({
 
     try {
       const payload = {
-        companyId: params.companyId,
-        contactId: params.contactId,
+        companyId: companyId,
+        contactId: contactId,
         outreachMailScheduledAt: new Date(
           formData.outreachMailScheduledAt
         ).toISOString(),
