@@ -130,6 +130,7 @@ const CompanyCreatePage = () => {
         twitter: formData.twitter,
         facebook: formData.facebook,
         status: "ACTIVE",
+        gsiPartitionKey: "COMPANY",
       };
       await createCompanyAPI(payload);
       addToast({

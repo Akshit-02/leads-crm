@@ -4,6 +4,7 @@ export const getCompany = /* GraphQL */ `
       id
       name
       website
+      gsiPartitionKey
       websiteTechStack
       domain
       industry
@@ -142,6 +143,7 @@ export const createCompany = /* GraphQL */ `
       id
       name
       website
+      gsiPartitionKey
       websiteTechStack
       domain
       industry
@@ -192,6 +194,7 @@ export const updateCompany = /* GraphQL */ `
       id
       name
       website
+      gsiPartitionKey
       websiteTechStack
       domain
       industry
