@@ -395,16 +395,19 @@ https://zspace.in
         ) : (
           <Table radius="sm" aria-label="Contacts table">
             <TableHeader>
+              <TableColumn>No.</TableColumn>
               <TableColumn>Name</TableColumn>
               <TableColumn>Email</TableColumn>
               <TableColumn>Phone</TableColumn>
               <TableColumn>Designation</TableColumn>
+              <TableColumn>Notes</TableColumn>
               <TableColumn>Status</TableColumn>
               <TableColumn>Actions</TableColumn>
             </TableHeader>
             <TableBody isLoading={loading} loadingState="loading">
-              {contacts.map((contact: any) => (
+              {contacts.map((contact: any, index: number) => (
                 <TableRow key={contact.id}>
+                  <TableCell>{index + 1}</TableCell>
                   <TableCell className="font-medium">{contact.name}</TableCell>
                   <TableCell>
                     {contact.email ? (
@@ -432,6 +435,11 @@ https://zspace.in
                   </TableCell>
                   <TableCell>
                     {contact.designation || (
+                      <span className="text-foreground-400">-</span>
+                    )}
+                  </TableCell>
+                  <TableCell>
+                    {contact.notes || (
                       <span className="text-foreground-400">-</span>
                     )}
                   </TableCell>

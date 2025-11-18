@@ -52,10 +52,12 @@ const CompanyPage = () => {
       </div>
       <Table radius="sm" aria-label="Example static collection table">
         <TableHeader>
+          <TableColumn>No.</TableColumn>
           <TableColumn>Name</TableColumn>
           <TableColumn>Website</TableColumn>
-          <TableColumn>Website Tech Stack</TableColumn>
+          {/* <TableColumn>Website Tech Stack</TableColumn> */}
           <TableColumn>Industry</TableColumn>
+          <TableColumn>Notes</TableColumn>
           <TableColumn>Linkedin</TableColumn>
           <TableColumn>Instagram</TableColumn>
           <TableColumn>Status</TableColumn>
@@ -64,11 +66,12 @@ const CompanyPage = () => {
         <TableBody isLoading={loading} loadingState="loading">
           {companies.map((company: any, index: number) => (
             <TableRow key={index}>
+              <TableCell>{index + 1}</TableCell>
               <TableCell
-                onClick={() => router.push(`/company/${company.id}`)}
+                // onClick={() => router.push(`/company/${company.id}`)}
                 className="underline cursor-pointer"
               >
-                {company.name}
+                <a href={`/company/${company.id}`}>{company.name}</a>
               </TableCell>
               <TableCell
                 onClick={() => window.open(company.website, "_blank")}
@@ -76,15 +79,16 @@ const CompanyPage = () => {
               >
                 {company.website}
               </TableCell>
-              <TableCell>{company.websiteTechStack}</TableCell>
+              {/* <TableCell>{company.websiteTechStack}</TableCell> */}
               <TableCell>{company.industry}</TableCell>
+              <TableCell>{company.notes}</TableCell>
               <TableCell
                 onClick={() => {
                   window.open(company.linkedin, "_blank");
                 }}
                 className="cursor-pointer text-blue-400 hover:underline"
               >
-                {company.linkedin}
+                Linked
               </TableCell>
               <TableCell
                 onClick={() => {
@@ -92,7 +96,7 @@ const CompanyPage = () => {
                 }}
                 className="cursor-pointer text-blue-400 hover:underline"
               >
-                {company.instagram}
+                Instagram
               </TableCell>
               <TableCell>{company.status}</TableCell>
               <TableCell>

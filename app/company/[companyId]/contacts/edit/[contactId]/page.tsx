@@ -12,14 +12,16 @@ import { useEffect, useState } from "react";
 
 const designationOptions = [
   { label: "Founder", value: "founder" },
+  { label: "Ecom Lead", value: "ecom_lead" },
+  { label: "Brand Manager", value: "brand_manager" },
+  { label: "Marketing", value: "marketing" },
   { label: "CEO", value: "ceo" },
-  { label: "CTO", value: "cto" },
-  { label: "COO", value: "coo" },
-  { label: "CFO", value: "cfo" },
+  { label: "Other", value: "other" },
   { label: "CMO", value: "cmo" },
   { label: "Growth", value: "growth" },
-  { label: "Ecom Lead", value: "ecom_lead" },
-  { label: "Other", value: "other" },
+  { label: "CTO", value: "cto" },
+  { label: "CFO", value: "cfo" },
+  { label: "COO", value: "coo" },
 ];
 
 const ContactEditPage = () => {

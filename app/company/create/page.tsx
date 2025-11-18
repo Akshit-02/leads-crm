@@ -11,6 +11,7 @@ import { Divider } from "@heroui/divider";
 import { createCompanyAPI } from "@/services/handleApi";
 
 const industryOptions = [
+  { label: "Ecommerce", value: "ecommerce" },
   { label: "Beauty", value: "beauty" },
   { label: "Fashion", value: "fashion" },
   { label: "Electronics", value: "electronics" },
@@ -21,7 +22,6 @@ const industryOptions = [
   { label: "Home essentials", value: "home-essentials" },
   { label: "Gifting", value: "gifting" },
   { label: "Pharmacy", value: "pharmacy" },
-  { label: "Ecommerce", value: "ecommerce" },
   { label: "Technology", value: "technology" },
   { label: "Finance", value: "finance" },
   { label: "Healthcare", value: "healthcare" },
