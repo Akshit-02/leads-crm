@@ -56,6 +56,7 @@ export const listCompanies = /* GraphQL */ `
         id
         name
         website
+        gsiPartitionKey
         websiteTechStack
         domain
         industry
