@@ -168,7 +168,6 @@ const CompanyEditPage = () => {
         priority: formData.priority,
         status: "ACTIVE",
       };
-      console.log("payload", payload);
       await updateCompanyAPI(companyId, payload);
       addToast({
         title: "Company updated successfully!",

@@ -131,7 +131,6 @@ const CompanyCreatePage = () => {
         facebook: formData.facebook,
         status: "ACTIVE",
       };
-      console.log("payload", payload);
       await createCompanyAPI(payload);
       addToast({
         title: "Company created successfully!",

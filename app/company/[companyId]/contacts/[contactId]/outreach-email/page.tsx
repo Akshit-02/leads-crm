@@ -124,7 +124,6 @@ const OutreachEmailPage = () => {
 
     setIsSaving(true);
     try {
-      // Update the local state
       const updatedMailData = { ...mailData };
       updatedMailData[`${editData.fieldPrefix}Subject` as keyof EmailData] =
         editData.subject;
@@ -135,12 +134,8 @@ const OutreachEmailPage = () => {
       updatedMailData[`${editData.fieldPrefix}Html` as keyof EmailData] =
         editData.html;
 
-      console.log("first", updatedMailData);
-
-      // TODO: Call your API to save the changes
       const { id, createdAt, updatedAt, ...rest } = updatedMailData;
       await updateOutreachEmailFlowAPI(mailData.id, rest);
-      // setMailData(updatedMailData);
 
       setIsEditModalOpen(false);
       setEditData(null);

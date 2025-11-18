@@ -36,7 +36,6 @@ export const getCompanyAPI = async (id: string) => {
 };
 
 export const createCompanyAPI = async (input: any) => {
-  console.log("input", input);
   const response: any = await client.graphql({
     query: createCompany,
     variables: {
@@ -44,7 +43,6 @@ export const createCompanyAPI = async (input: any) => {
     },
     authMode: "apiKey",
   });
-  console.log("response", response);
   return response?.data?.createCompany;
 };
 

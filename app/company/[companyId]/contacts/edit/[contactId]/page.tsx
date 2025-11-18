@@ -102,7 +102,6 @@ const ContactEditPage = () => {
         status: "ACTIVE",
         companyId: companyId,
       };
-      console.log("payload", payload);
       await updateContactAPI(contactId, payload);
       addToast({
         title: "Contact updated successfully!",

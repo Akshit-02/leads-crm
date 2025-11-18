@@ -108,7 +108,6 @@ const CompanyDetailsPage = () => {
   }
 
   const handleSendMail = async (contact: any) => {
-    console.log(contact);
     return;
     try {
       const outreach = await sendOutreachEmailAPI({

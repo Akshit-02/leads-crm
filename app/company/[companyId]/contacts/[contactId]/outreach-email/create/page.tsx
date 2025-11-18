@@ -81,6 +81,13 @@ const CreateOutreachEmailPage = () => {
     }));
   };
 
+  const toISOWithTimezone = (datetimeLocal: string) => {
+    const date = new Date(datetimeLocal);
+    const offset = date.getTimezoneOffset();
+    const localDate = new Date(date.getTime() - offset * 60 * 1000);
+    return localDate.toISOString();
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -89,27 +96,21 @@ const CreateOutreachEmailPage = () => {
       const payload = {
         companyId: companyId,
         contactId: contactId,
-        outreachMailScheduledAt: new Date(
+        outreachMailScheduledAt: toISOWithTimezone(
           formData.outreachMailScheduledAt
-        ).toISOString(),
+        ),
         outreachMailSubject: formData.outreachMailSubject,
         outreachMailHtml: formData.outreachMailHtml,
         outreachMailText: formData.outreachMailText,
-        followup1ScheduledAt: new Date(
-          formData.followup1ScheduledAt
-        ).toISOString(),
+        followup1ScheduledAt: toISOWithTimezone(formData.followup1ScheduledAt),
         followup1Subject: formData.followup1Subject,
         followup1Html: formData.followup1Html,
         followup1Text: formData.followup1Text,
-        followup2ScheduledAt: new Date(
-          formData.followup2ScheduledAt
-        ).toISOString(),
+        followup2ScheduledAt: toISOWithTimezone(formData.followup2ScheduledAt),
         followup2Subject: formData.followup2Subject,
         followup2Html: formData.followup2Html,
         followup2Text: formData.followup2Text,
-        followup3ScheduledAt: new Date(
-          formData.followup3ScheduledAt
-        ).toISOString(),
+        followup3ScheduledAt: toISOWithTimezone(formData.followup3ScheduledAt),
         followup3Subject: formData.followup3Subject,
         followup3Html: formData.followup3Html,
         followup3Text: formData.followup3Text,

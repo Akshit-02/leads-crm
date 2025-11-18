@@ -76,7 +76,6 @@ const ContactCreatePage = () => {
         status: "ACTIVE",
         companyId: companyId,
       };
-      console.log("payload", payload);
       await createContactAPI(payload);
       addToast({
         title: "Contact created successfully!",
