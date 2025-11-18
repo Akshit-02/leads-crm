@@ -16,8 +16,7 @@ import { useRouter } from "next/navigation";
 
 const CompanyPage = () => {
   const router = useRouter();
-  const [companies, setCompanies] = useState([]);
-  const [nextToken, setNextToken] = useState(null);
+  const [companies, setCompanies] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -27,9 +26,8 @@ const CompanyPage = () => {
   const fetchCompanies = async () => {
     try {
       setLoading(true);
-      const response = await listCompaniesAPI({ nextToken });
-      setCompanies(response.items);
-      setNextToken(response.nextToken);
+      const response = await listCompaniesAPI();
+      setCompanies(response);
     } catch (error) {
       console.error("Error fetching companies", error);
     } finally {

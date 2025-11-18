@@ -60,19 +60,30 @@ export const updateCompanyAPI = async (id: string, input: any) => {
   return response?.data?.updateCompany;
 };
 
-export const listCompaniesAPI = async ({
-  limit = 100,
-  nextToken = null,
-}: any) => {
-  const response: any = await client.graphql({
-    query: listCompanies,
-    variables: {
-      limit,
-      nextToken,
-    },
-    authMode: "apiKey",
-  });
-  return response?.data?.listCompanies;
+export const listCompaniesAPI = async (): Promise<any[]> => {
+  let allCompanies: any[] = [];
+  let nextToken: string | null = null;
+
+  do {
+    const response: any = await client.graphql({
+      query: listCompanies,
+      variables: {
+        limit: 100,
+        nextToken,
+      },
+      authMode: "apiKey",
+    });
+
+    const data = response?.data?.listCompanies;
+
+    if (data?.items?.length) {
+      allCompanies.push(...data.items);
+    }
+
+    nextToken = data?.nextToken || null;
+  } while (nextToken);
+
+  return allCompanies;
 };
 
 export const listContactsAPI = async ({
