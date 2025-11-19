@@ -401,6 +401,7 @@ https://zspace.in
               <TableColumn>Assigned To</TableColumn>
               <TableColumn>Designation</TableColumn>
               <TableColumn>Notes</TableColumn>
+              <TableColumn>Linkedin</TableColumn>
               <TableColumn>Status</TableColumn>
               <TableColumn>Actions</TableColumn>
             </TableHeader>
@@ -448,6 +449,15 @@ https://zspace.in
                       <span className="text-foreground-400">-</span>
                     )}
                   </TableCell>
+                  <TableCell
+                    onClick={() => {
+                      window.open(contact.linkedin, "_blank");
+                    }}
+                    className="cursor-pointer text-blue-400 hover:underline"
+                  >
+                    {contact.linkedin ? "Linked" : ""}
+                  </TableCell>
+
                   <TableCell>
                     <span
                       className={`px-2 py-1 text-xs rounded-full ${

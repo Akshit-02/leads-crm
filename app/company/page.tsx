@@ -86,7 +86,7 @@ const CompanyPage = () => {
                 }}
                 className="cursor-pointer text-blue-400 hover:underline"
               >
-                Linked
+                {company.linkedin ? "Linked" : ""}
               </TableCell>
               <TableCell
                 onClick={() => {
@@ -94,7 +94,7 @@ const CompanyPage = () => {
                 }}
                 className="cursor-pointer text-blue-400 hover:underline"
               >
-                Instagram
+                {company.instagram ? "Instagram" : ""}
               </TableCell>
               <TableCell>{company.status}</TableCell>
               <TableCell>
