@@ -37,6 +37,7 @@ export const getContact = /* GraphQL */ `
       name
       email
       phone
+      assignedTo
       designation
       department
       linkedin
@@ -93,6 +94,7 @@ export const listContacts = /* GraphQL */ `
         name
         email
         phone
+        assignedTo
         designation
         department
         linkedin
@@ -124,6 +126,7 @@ export const listContactsByCompanyId = /* GraphQL */ `
         name
         email
         phone
+        assignedTo
         designation
         department
         linkedin
@@ -181,6 +184,7 @@ export const createContact = /* GraphQL */ `
       department
       linkedin
       instagram
+      assignedTo
       notes
       status
       createdAt
@@ -232,6 +236,7 @@ export const updateContact = /* GraphQL */ `
       department
       linkedin
       instagram
+      assignedTo
       notes
       status
       createdAt

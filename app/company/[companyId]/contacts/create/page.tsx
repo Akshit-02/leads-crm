@@ -25,6 +25,11 @@ const designationOptions = [
   { label: "COO", value: "coo" },
 ];
 
+const assignedToOptions = [
+  { label: "Akshit", value: "AKSHIT" },
+  { label: "Aditya", value: "ADITYA" },
+];
+
 const ContactCreatePage = () => {
   const { companyId } = useParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -33,6 +38,7 @@ const ContactCreatePage = () => {
     name: "",
     email: "",
     phone: "",
+    assignedTo: "",
     designation: "",
     department: "",
     linkedin: "",
@@ -69,6 +75,7 @@ const ContactCreatePage = () => {
         email: formData.email,
         phone: formData.phone,
         designation: formData.designation,
+        assignedTo: formData.assignedTo,
         department: formData.department,
         linkedin: formData.linkedin,
         instagram: formData.instagram,
@@ -89,6 +96,7 @@ const ContactCreatePage = () => {
         email: "",
         phone: "",
         designation: "",
+        assignedTo: "",
         department: "",
         linkedin: "",
         instagram: "",
@@ -192,6 +200,27 @@ const ContactCreatePage = () => {
                   placeholder="Select designation"
                 >
                   {designationOptions.map((option) => (
+                    <SelectItem key={option.value}>{option.label}</SelectItem>
+                  ))}
+                </Select>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="assignedTo"
+                  className="block text-sm font-medium mb-1"
+                >
+                  Assigned To
+                </label>
+                <Select
+                  radius="sm"
+                  id="assignedTo"
+                  name="assignedTo"
+                  value={formData.assignedTo}
+                  onChange={(e) => handleSelectChange("assignedTo", e)}
+                  placeholder="Select assigned to"
+                >
+                  {assignedToOptions.map((option) => (
                     <SelectItem key={option.value}>{option.label}</SelectItem>
                   ))}
                 </Select>

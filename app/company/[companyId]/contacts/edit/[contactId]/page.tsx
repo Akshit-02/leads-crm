@@ -24,6 +24,11 @@ const designationOptions = [
   { label: "COO", value: "coo" },
 ];
 
+const assignedToOptions = [
+  { label: "Akshit", value: "AKSHIT" },
+  { label: "Aditya", value: "ADITYA" },
+];
+
 const ContactEditPage = () => {
   const { companyId, contactId } = useParams<{
     companyId: string;
@@ -36,6 +41,7 @@ const ContactEditPage = () => {
     email: "",
     phone: "",
     designation: "",
+    assignedTo: "",
     department: "",
     linkedin: "",
     instagram: "",
@@ -56,6 +62,7 @@ const ContactEditPage = () => {
         email: companyData.email,
         phone: companyData.phone,
         designation: companyData.designation,
+        assignedTo: companyData.assignedTo,
         department: companyData.department,
         linkedin: companyData.linkedin,
         instagram: companyData.instagram,
@@ -95,6 +102,7 @@ const ContactEditPage = () => {
         email: formData.email,
         phone: formData.phone,
         designation: formData.designation,
+        assignedTo: formData.assignedTo,
         department: formData.department,
         linkedin: formData.linkedin,
         instagram: formData.instagram,
@@ -115,6 +123,7 @@ const ContactEditPage = () => {
         email: "",
         phone: "",
         designation: "",
+        assignedTo: "",
         department: "",
         linkedin: "",
         instagram: "",
@@ -218,6 +227,27 @@ const ContactEditPage = () => {
                   placeholder="Select designation"
                 >
                   {designationOptions.map((option) => (
+                    <SelectItem key={option.value}>{option.label}</SelectItem>
+                  ))}
+                </Select>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="assignedTo"
+                  className="block text-sm font-medium mb-1"
+                >
+                  Assigned To
+                </label>
+                <Select
+                  radius="sm"
+                  id="assignedTo"
+                  name="assignedTo"
+                  value={formData.assignedTo}
+                  onChange={(e) => handleSelectChange("assignedTo", e)}
+                  placeholder="Select assigned to"
+                >
+                  {assignedToOptions.map((option) => (
                     <SelectItem key={option.value}>{option.label}</SelectItem>
                   ))}
                 </Select>

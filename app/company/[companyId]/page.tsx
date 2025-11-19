@@ -398,6 +398,7 @@ https://zspace.in
               <TableColumn>Name</TableColumn>
               <TableColumn>Email</TableColumn>
               <TableColumn>Phone</TableColumn>
+              <TableColumn>Assigned To</TableColumn>
               <TableColumn>Designation</TableColumn>
               <TableColumn>Notes</TableColumn>
               <TableColumn>Status</TableColumn>
@@ -429,6 +430,11 @@ https://zspace.in
                         {contact.phone}
                       </a>
                     ) : (
+                      <span className="text-foreground-400">-</span>
+                    )}
+                  </TableCell>
+                  <TableCell>
+                    {contact.assignedTo || (
                       <span className="text-foreground-400">-</span>
                     )}
                   </TableCell>
