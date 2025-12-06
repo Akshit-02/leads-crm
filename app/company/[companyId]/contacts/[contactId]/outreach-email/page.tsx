@@ -155,7 +155,7 @@ const OutreachEmailPage = () => {
   ) => {
     try {
       const response = await sendTestOutreachEmailAPI({
-        to: "admin@zspace.in",
+        to: "akshit.techie@gmail.com",
         from: "akshit@zspace.in",
         subject,
         text,
